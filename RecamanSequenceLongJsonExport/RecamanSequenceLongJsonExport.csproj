@@ -4,17 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{25701567-D9FC-424B-9F8A-443A60B2781E}</ProjectGuid>
+    <ProjectGuid>{DAE14098-FA37-4656-9D40-044DD22C6814}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>RecamanSequenceBigIntJsonExport</RootNamespace>
-    <AssemblyName>RecamanSequenceBigIntJsonExport</AssemblyName>
+    <RootNamespace>RecamanSequenceLongJsonExport</RootNamespace>
+    <AssemblyName>RecamanSequenceLongJsonExport</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>x64</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -38,7 +38,6 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Numerics" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
