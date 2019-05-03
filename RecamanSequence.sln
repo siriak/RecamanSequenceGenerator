@@ -1,18 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2036
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.352
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecamanSequenceLong", "RecamanSequenceLong\RecamanSequenceLong.csproj", "{72143B59-275E-4253-A4A4-C950B20C5529}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecamanSequenceBigInt", "RecamanSequenceBigInt\RecamanSequenceBigInt.csproj", "{926FD215-A0C3-40D7-BBE1-F4F88F173FD9}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecamanSequenceInt", "RecamanSequenceInt\RecamanSequenceInt.csproj", "{01143FD8-C522-42FF-A38D-AE697BFF360C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecamanSequenceBigIntJsonExport", "RecamanSequenceBigIntJsonExport\RecamanSequenceBigIntJsonExport.csproj", "{25701567-D9FC-424B-9F8A-443A60B2781E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecamanSequenceLongJsonExport", "RecamanSequenceLongJsonExport\RecamanSequenceLongJsonExport.csproj", "{DAE14098-FA37-4656-9D40-044DD22C6814}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecamanSequenceFull", "RecamanSequenceFull\RecamanSequenceFull.csproj", "{2746D301-028E-4379-82DA-27187F3014F2}"
 EndProject
 Global
@@ -21,26 +11,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{72143B59-275E-4253-A4A4-C950B20C5529}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{72143B59-275E-4253-A4A4-C950B20C5529}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{72143B59-275E-4253-A4A4-C950B20C5529}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{72143B59-275E-4253-A4A4-C950B20C5529}.Release|Any CPU.Build.0 = Release|Any CPU
-		{926FD215-A0C3-40D7-BBE1-F4F88F173FD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{926FD215-A0C3-40D7-BBE1-F4F88F173FD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{926FD215-A0C3-40D7-BBE1-F4F88F173FD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{926FD215-A0C3-40D7-BBE1-F4F88F173FD9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{01143FD8-C522-42FF-A38D-AE697BFF360C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{01143FD8-C522-42FF-A38D-AE697BFF360C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{01143FD8-C522-42FF-A38D-AE697BFF360C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{01143FD8-C522-42FF-A38D-AE697BFF360C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{25701567-D9FC-424B-9F8A-443A60B2781E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{25701567-D9FC-424B-9F8A-443A60B2781E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{25701567-D9FC-424B-9F8A-443A60B2781E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{25701567-D9FC-424B-9F8A-443A60B2781E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DAE14098-FA37-4656-9D40-044DD22C6814}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DAE14098-FA37-4656-9D40-044DD22C6814}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DAE14098-FA37-4656-9D40-044DD22C6814}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DAE14098-FA37-4656-9D40-044DD22C6814}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2746D301-028E-4379-82DA-27187F3014F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2746D301-028E-4379-82DA-27187F3014F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2746D301-028E-4379-82DA-27187F3014F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
