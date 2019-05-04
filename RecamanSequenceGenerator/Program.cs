@@ -4,7 +4,7 @@ namespace RecamanSequenceFull
 {
     internal class Program
     {
-        private static void Main(string[] args)
+        private static void Main()
         {
             Console.WindowWidth = 50;
             Console.WindowHeight = 8;

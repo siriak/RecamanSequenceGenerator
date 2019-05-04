@@ -49,7 +49,7 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RecamanSequence.cs" />
+    <Compile Include="RecamanSequenceGenerator.cs" />
     <Compile Include="Runner.cs" />
     <Compile Include="SmartList.cs" />
   </ItemGroup>

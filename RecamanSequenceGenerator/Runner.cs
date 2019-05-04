@@ -11,14 +11,14 @@ namespace RecamanSequenceFull
     {
         private const string statefilename = "state.json";
 
-        public RecamanSequence sequence = new RecamanSequence();
+        public RecamanSequenceGenerator sequence = new RecamanSequenceGenerator();
         private readonly BigInteger[] appearedBuffer = new BigInteger[100_000];
 
         public void Run()
         {
             DisplaySequenceState();
 
-            var enumerator = sequence.Sequence().GetEnumerator();
+            var enumerator = sequence.GetSequence().GetEnumerator();
 
             while (true)
             {
@@ -47,42 +47,15 @@ namespace RecamanSequenceFull
             Console.WriteLine($"Step:          {sequence.Step:n0}           ");
         }
 
-        public static Runner Load()
-        {
-            if (File.Exists(statefilename))
-            {
-                using (var stream = File.OpenRead(statefilename))
-                using (var reader = new StreamReader(stream))
-                {
-                    return JsonConvert.DeserializeObject<Runner>(reader.ReadLine());
-                }
-            }
+        public static Runner Load() => File.Exists(statefilename) ? JsonConvert.DeserializeObject<Runner>(File.ReadAllText(statefilename)) : new Runner();
 
-            return new Runner();
-        }
-
-        private void SaveAppeared()
-        {
-            using (var stream = File.OpenWrite($"elements/elements_{sequence.Step}.json"))
-            using (var writer = new StreamWriter(stream))
-            {
-                writer.WriteLine(JsonConvert.SerializeObject(appearedBuffer));
-            }
-        }
+        private void SaveAppeared() => File.WriteAllText($"elements/elements_{sequence.Step}.json", JsonConvert.SerializeObject(appearedBuffer));
 
         public void SaveState()
         {
-            using (var stream = File.OpenWrite("state.json"))
-            using (var writer = new StreamWriter(stream))
-            {
-                writer.WriteLine(JsonConvert.SerializeObject(this));
-            }
-
-            using (var stream = File.OpenWrite($"states/state_{sequence.Step}.json"))
-            using (var writer = new StreamWriter(stream))
-            {
-                writer.WriteLine(JsonConvert.SerializeObject(this));
-            }
+            var objectString = JsonConvert.SerializeObject(this);
+            File.WriteAllText(statefilename, objectString);
+            File.WriteAllText($"states/state_{sequence.Step}.json", objectString);
         }
     }
 }

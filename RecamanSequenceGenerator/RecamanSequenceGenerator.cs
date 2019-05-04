@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 namespace RecamanSequenceFull
 {
     [Serializable]
-    internal class RecamanSequence
+    internal class RecamanSequenceGenerator
     {
         [JsonIgnore]
         public BigInteger MinNotFound => Found.MinNotFound;
@@ -22,7 +22,7 @@ namespace RecamanSequenceFull
 
         public SmartList Found = new SmartList();
 
-        public IEnumerable<BigInteger> Sequence()
+        public IEnumerable<BigInteger> GetSequence()
         {
             while (true)
             {
