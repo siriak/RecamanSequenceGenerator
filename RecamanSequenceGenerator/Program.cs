@@ -2,7 +2,7 @@ using System;
 
 namespace RecamanSequenceFull
 {
-    internal class Program
+    internal static class Program
     {
         private static void Main()
         {
