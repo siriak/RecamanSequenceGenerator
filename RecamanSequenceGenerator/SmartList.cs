@@ -73,6 +73,6 @@ namespace RecamanSequenceFull
 
         public bool Contains(BigInteger value) => FoundIntervals.Any(x => x.Item2 >= value && x.Item1 <= value);
 
-        private BigInteger Max(BigInteger left, BigInteger right) => left > right ? left : right;
+        private static BigInteger Max(BigInteger left, BigInteger right) => left > right ? left : right;
     }
 }
