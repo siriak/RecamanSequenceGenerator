@@ -16,6 +16,6 @@ namespace RecamanSequenceGenerator.Tests
             Assert.AreEqual(expectedSequence, actualSequence);
         }
 
-        private static BigInteger[] GetExpectedSequenceFirstTerms() => File.ReadAllLines(@"..\..\..\FirstMillionRealTerms.txt").Select(BigInteger.Parse).ToArray();
+        private static BigInteger[] GetExpectedSequenceFirstTerms() => File.ReadAllLines(@"../../../FirstMillionRealTerms.txt").Select(BigInteger.Parse).ToArray();
     }
 }
