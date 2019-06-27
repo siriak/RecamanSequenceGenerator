@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Numerics;
+using System.Runtime.CompilerServices;
 
 namespace RecamanSequenceGenerator
 {
     [Serializable]
     public class SmartList
     {
-        public Dictionary<BigInteger, BigInteger> startToEnd = new Dictionary<BigInteger, BigInteger>();
-        public Dictionary<BigInteger, BigInteger> endToStart = new Dictionary<BigInteger, BigInteger>();
+        private readonly Dictionary<BigInteger, BigInteger> startToEnd = new Dictionary<BigInteger, BigInteger>();
+        private readonly Dictionary<BigInteger, BigInteger> endToStart = new Dictionary<BigInteger, BigInteger>();
 
         public BigInteger MinNotFound;
         public BigInteger MaxFound;
@@ -89,9 +90,7 @@ namespace RecamanSequenceGenerator
                 return true;
             }
 
-            var checkUp = true;
-            var checkDown = true;
-            for (var i = 1; checkDown || checkUp; i++)
+            for (var i = 1; true; i++)
             {
                 var t = value - i;
                 if (startToEnd.ContainsKey(t))
@@ -115,19 +114,20 @@ namespace RecamanSequenceGenerator
                     return false;
                 }
             }
-
-            return false;
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private static BigInteger Max(BigInteger left, BigInteger right) => left > right ? left : right;
 
-        void Remove(BigInteger start, BigInteger end)
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private void Remove(BigInteger start, BigInteger end)
         {
             endToStart.Remove(end);
             startToEnd.Remove(start);
         }
 
-        void Add(BigInteger start, BigInteger end)
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private void Add(BigInteger start, BigInteger end)
         {
             endToStart.Add(end, start);
             startToEnd.Add(start, end);

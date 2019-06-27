@@ -1,7 +1,7 @@
 using NUnit.Framework;
-using System.Numerics;
-using System.Linq;
 using System.IO;
+using System.Linq;
+using System.Numerics;
 
 namespace RecamanSequenceGenerator.Tests
 {
@@ -16,6 +16,6 @@ namespace RecamanSequenceGenerator.Tests
             Assert.AreEqual(expectedSequence, actualSequence);
         }
 
-        BigInteger[] GetExpectedSequenceFirstTerms() => File.ReadAllLines(@"..\..\..\FirstMillionRealTerms.txt").Select(BigInteger.Parse).ToArray();
+        private static BigInteger[] GetExpectedSequenceFirstTerms() => File.ReadAllLines(@"..\..\..\FirstMillionRealTerms.txt").Select(BigInteger.Parse).ToArray();
     }
 }
