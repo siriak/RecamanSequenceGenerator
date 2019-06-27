@@ -3,7 +3,7 @@ using System;
 using System.IO;
 using System.Numerics;
 
-namespace RecamanSequenceFull
+namespace RecamanSequenceGenerator
 {
     [Serializable]
     internal class Runner

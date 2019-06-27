@@ -3,10 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Numerics;
 
-namespace RecamanSequenceFull
+namespace RecamanSequenceGenerator
 {
     [Serializable]
-    internal class RecamanSequenceGenerator
+    public class RecamanSequenceGenerator
     {
         [JsonIgnore]
         public BigInteger MinNotFound => Found.MinNotFound;

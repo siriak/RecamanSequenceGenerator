@@ -1,2 +1,6 @@
 language: csharp
 solution: RecamanSequenceGenerator.sln
+script:
+ - dotnet build
+ - dotnet test --collect:"XPlat Code Coverage"
+ - bash <(curl -s https://codecov.io/bash)
