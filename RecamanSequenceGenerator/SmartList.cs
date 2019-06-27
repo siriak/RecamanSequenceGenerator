@@ -90,7 +90,8 @@ namespace RecamanSequenceGenerator
                 return true;
             }
 
-            for (var i = 1; true; i++)
+            var i = 1;
+            while (true)
             {
                 var t = value - i;
                 if (startToEnd.ContainsKey(t))
@@ -113,6 +114,8 @@ namespace RecamanSequenceGenerator
                 {
                     return false;
                 }
+
+                i++;
             }
         }
 

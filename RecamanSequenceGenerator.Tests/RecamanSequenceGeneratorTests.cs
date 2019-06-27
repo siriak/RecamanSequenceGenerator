@@ -5,10 +5,10 @@ using System.Numerics;
 
 namespace RecamanSequenceGenerator.Tests
 {
-    public class RecamanSequenceGeneratorTests
+    public static class RecamanSequenceGeneratorTests
     {
         [Test]
-        public void FirstElementsCorrect()
+        public static void FirstElementsCorrect()
         {
             var expectedSequence = GetExpectedSequenceFirstTerms();
             var actualSequence = new RecamanSequenceGenerator().GetSequence().Take(expectedSequence.Length);
