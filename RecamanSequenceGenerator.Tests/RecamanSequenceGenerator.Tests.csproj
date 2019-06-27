@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\RecamanSequenceGenerator\RecamanSequenceGenerator.csproj" />
+    <ProjectReference Include="..\RecamanSequenceGenerator\RecamanSequenceGeneratorasb.csproj" />
   </ItemGroup>
 
 </Project>
