@@ -1,6 +1,6 @@
 using System;
 
-namespace RecamanSequenceFull
+namespace RecamanSequenceGenerator
 {
     internal static class Program
     {
