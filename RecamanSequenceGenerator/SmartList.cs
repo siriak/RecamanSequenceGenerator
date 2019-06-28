@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Numerics;
+using System.Runtime.CompilerServices;
 
-namespace RecamanSequenceFull
+namespace RecamanSequenceGenerator
 {
     [Serializable]
-    internal class SmartList
+    public class SmartList
     {
-        public List<Tuple<BigInteger, BigInteger>> FoundIntervals = new List<Tuple<BigInteger, BigInteger>>();
+        private readonly Dictionary<BigInteger, BigInteger> startToEnd = new Dictionary<BigInteger, BigInteger>();
+        private readonly Dictionary<BigInteger, BigInteger> endToStart = new Dictionary<BigInteger, BigInteger>();
 
         public BigInteger MinNotFound;
         public BigInteger MaxFound;
@@ -26,53 +27,113 @@ namespace RecamanSequenceFull
             CountFound++;
             MaxFound = Max(MaxFound, value);
 
-            var low = FoundIntervals.FirstOrDefault(x => x.Item2 == value - 1);
-            var high = FoundIntervals.FirstOrDefault(x => x.Item1 == value + 1);
+            var lowValue = value - 1;
+            var highValue = value + 1;
+            var hasLow = endToStart.ContainsKey(lowValue);
+            var hasHigh = startToEnd.ContainsKey(highValue);
 
-            if (low != null && high != null)
+            if (hasLow && hasHigh)
             {
-                FoundIntervals.Remove(low);
-                FoundIntervals.Remove(high);
+                var low = endToStart[lowValue];
+                var high = startToEnd[highValue];
+                Remove(low, lowValue);
+                Remove(highValue, high);
 
-                FoundIntervals.Add(new Tuple<BigInteger, BigInteger>(low.Item1, high.Item2));
+                Add(low, high);
 
                 if (MinNotFound == value)
                 {
-                    MinNotFound = high.Item2 + 1;
+                    MinNotFound = high + 1;
                 }
             }
-            else if (low != null)
+            else if (hasLow)
             {
-                FoundIntervals.Remove(low);
+                var low = endToStart[lowValue];
+                Remove(low, lowValue);
 
-                FoundIntervals.Add(new Tuple<BigInteger, BigInteger>(low.Item1, value));
+                Add(low, value);
 
                 if (MinNotFound == value)
                 {
-                    MinNotFound = value + 1;
+                    MinNotFound = highValue;
                 }
             }
-            else if (high != null)
+            else if (hasHigh)
             {
-                FoundIntervals.Remove(high);
+                var high = startToEnd[value + 1];
+                Remove(value + 1, high);
 
-                FoundIntervals.Add(new Tuple<BigInteger, BigInteger>(value, high.Item2));
+                Add(value, high);
             }
             else
             {
-                FoundIntervals.Add(new Tuple<BigInteger, BigInteger>(value, value));
+                Add(value, value);
 
                 if (MinNotFound == value)
                 {
-                    MinNotFound = value + 1;
+                    MinNotFound = highValue;
                 }
             }
 
             return true;
         }
 
-        public bool Contains(BigInteger value) => FoundIntervals.Any(x => x.Item2 >= value && x.Item1 <= value);
+        public bool Contains(BigInteger value)
+        {
+            if (value > MaxFound || endToStart.Count == 0)
+            {
+                return false;
+            }
 
+            if (endToStart.ContainsKey(value) || startToEnd.ContainsKey(value))
+            {
+                return true;
+            }
+
+            var i = 1;
+            while (true)
+            {
+                var t = value - i;
+                if (startToEnd.ContainsKey(t))
+                {
+                    return startToEnd[t] > value;
+                }
+
+                if (endToStart.ContainsKey(t))
+                {
+                    return false;
+                }
+
+                t = value + i;
+                if (endToStart.ContainsKey(t))
+                {
+                    return endToStart[t] < value;
+                }
+
+                if (startToEnd.ContainsKey(t))
+                {
+                    return false;
+                }
+
+                i++;
+            }
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private static BigInteger Max(BigInteger left, BigInteger right) => left > right ? left : right;
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private void Remove(BigInteger start, BigInteger end)
+        {
+            endToStart.Remove(end);
+            startToEnd.Remove(start);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private void Add(BigInteger start, BigInteger end)
+        {
+            endToStart.Add(end, start);
+            startToEnd.Add(start, end);
+        }
     }
 }
