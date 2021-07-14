@@ -8,18 +8,18 @@ namespace RecamanSequenceGenerator
     [Serializable]
     public class SmartList
     {
-        private readonly Dictionary<BigInteger, BigInteger> startToEnd = new Dictionary<BigInteger, BigInteger>();
-        private readonly Dictionary<BigInteger, BigInteger> endToStart = new Dictionary<BigInteger, BigInteger>();
+        public readonly Dictionary<BigInteger, BigInteger> startToEnd = new Dictionary<BigInteger, BigInteger>();
+        public readonly Dictionary<BigInteger, BigInteger> endToStart = new Dictionary<BigInteger, BigInteger>();
 
-        public BigInteger MinNotFound;
-        public BigInteger MaxFound;
-        public BigInteger CountFound;
+        public BigInteger MinNotFound = 0;
+        public BigInteger MaxFound = -1;
+        public BigInteger CountFound = 0;
 
         public double Fillness => Math.Exp(BigInteger.Log(CountFound) - BigInteger.Log(MaxFound + 1));
 
         public bool Add(BigInteger value)
         {
-            if (value < MinNotFound || Contains(value))
+            if (Contains(value))
             {
                 return false;
             }
@@ -80,7 +80,12 @@ namespace RecamanSequenceGenerator
 
         public bool Contains(BigInteger value)
         {
-            if (value > MaxFound || endToStart.Count == 0)
+            if (value < MinNotFound)
+            {
+                return true;
+            }
+
+            if (value > MaxFound)
             {
                 return false;
             }

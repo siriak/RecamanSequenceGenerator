@@ -12,7 +12,6 @@ namespace RecamanSequenceGenerator.Tests
         {
             var expectedSequence = GetExpectedSequenceFirstTerms();
             var actualSequence = new RecamanSequenceGenerator().GetSequence().Take(expectedSequence.Length);
-
             Assert.AreEqual(expectedSequence, actualSequence);
         }
 

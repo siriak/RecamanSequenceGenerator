@@ -1,7 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.IO;
-using System.Numerics;
 
 namespace RecamanSequenceGenerator
 {
@@ -11,7 +10,6 @@ namespace RecamanSequenceGenerator
         private const string statefilename = "state.json";
 
         public RecamanSequenceGenerator sequence = new RecamanSequenceGenerator();
-        private readonly BigInteger[] appearedBuffer = new BigInteger[100_000];
 
         public void Run()
         {
@@ -21,14 +19,12 @@ namespace RecamanSequenceGenerator
 
             while (true)
             {
-                for (var i = 0; i < 100_000; i++)
+                for (var i = 0; i < 1_000_000; i++)
                 {
                     enumerator.MoveNext();
-                    appearedBuffer[i] = enumerator.Current;
                 }
 
                 DisplaySequenceState();
-                SaveAppeared();
                 SaveState();
             }
         }
@@ -47,8 +43,6 @@ namespace RecamanSequenceGenerator
         }
 
         public static Runner Load() => File.Exists(statefilename) ? JsonConvert.DeserializeObject<Runner>(File.ReadAllText(statefilename)) : new Runner();
-
-        private void SaveAppeared() => File.WriteAllText($"elements/elements_{sequence.Step}.json", JsonConvert.SerializeObject(appearedBuffer));
 
         public void SaveState()
         {
