@@ -11,8 +11,8 @@ namespace RecamanSequenceGenerator.Tests
         public static void FirstElementsCorrect()
         {
             var expectedSequence = GetExpectedSequenceFirstTerms();
-            var actualSequence = new RecamanSequenceGenerator().GetSequence().Take(expectedSequence.Length);
-            Assert.AreEqual(expectedSequence, actualSequence);
+            var actualSequence = new RecamanSequenceGenerator().GetSequence().Take(expectedSequence.Length).ToArray();
+            Assert.That(actualSequence, Is.EqualTo(expectedSequence));
         }
 
         private static BigInteger[] GetExpectedSequenceFirstTerms() => File.ReadAllLines(@"../../../FirstMillionRealTerms.txt").Select(BigInteger.Parse).ToArray();
